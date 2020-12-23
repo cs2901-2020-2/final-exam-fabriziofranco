@@ -19,62 +19,152 @@ public class Blockudoku {
         }
 <span class="fc" id="L20">    }</span>
 
-    private void display(){
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i &lt; 9; ++i) {</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">            for (int j = 0; j &lt; 9; ++j) {</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">                if(matrix[i][j] = false)</span>
-<span class="nc" id="L26">                    logger.info(&quot;X&quot;);</span>
-                else
-<span class="nc" id="L28">                    logger.info(&quot; &quot;);</span>
+    private void display(boolean testing){
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">        if(!testing){</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            for (int i = 0; i &lt; 9; ++i) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">                for (int j = 0; j &lt; 9; ++j) {</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">                    if(matrix[i][j] == false)</span>
+<span class="nc" id="L27">                        logger.info(&quot;X&quot;);</span>
+                    else
+<span class="nc" id="L29">                        logger.info(&quot; &quot;);</span>
+                }
+<span class="nc" id="L31">                logger.info(&quot;\n&quot;);</span>
             }
-<span class="nc" id="L30">            logger.info(&quot;\n&quot;);</span>
         }
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L34">    }</span>
 
-    private void playTurn(){
+    private void playTurn(boolean testing){
 
-<span class="nc" id="L36">        logger.info(&quot;El bloque aleatorio es:&quot;);</span>
+<span class="fc" id="L38">        logger.info(&quot;El bloque aleatorio es:&quot;);</span>
 
-<span class="nc" id="L38">        Bloque bloque= new Bloque();</span>
-<span class="nc" id="L39">        boolean [][] values= bloque.getValues();</span>
+<span class="fc" id="L40">        Bloque bloque= new Bloque();</span>
+<span class="fc" id="L41">        boolean [][] values= bloque.getValues();</span>
 
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        for (int i = 0; i &lt; 3; ++i) {</span>
-<span class="nc bnc" id="L42" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; ++j) {</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">                if(values[i][j] = false)</span>
-<span class="nc" id="L44">                    logger.info(&quot;X&quot;);</span>
-                else
-<span class="nc" id="L46">                    logger.info(&quot; &quot;);</span>
-            }
-<span class="nc" id="L48">            logger.info(&quot;\n&quot;);</span>
-        }
+<span class="fc" id="L43">        displayBloque(values,testing);</span>
 
-
-<span class="nc" id="L52">        logger.info(&quot;Introduzca en x de la esquina superior derecha del bloque:&quot;);</span>
-<span class="nc" id="L53">        int x = scanner.nextInt();</span>
-<span class="nc" id="L54">        logger.info(&quot;Introduzca en y de la esquina superior derecha del bloque:&quot;);</span>
-<span class="nc" id="L55">        int y = scanner.nextInt();</span>
-
-<span class="nc bnc" id="L57" title="All 2 branches missed.">        if(!verificarPuedeSerJugado(bloque)){</span>
-<span class="nc" id="L58">            canPlay=false;</span>
+        int x,y;
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if(!testing) {</span>
+<span class="nc" id="L47">            logger.info(&quot;Introduzca en x de la esquina superior derecha del bloque:&quot;);</span>
+<span class="nc" id="L48">            x = scanner.nextInt();</span>
+<span class="nc" id="L49">            logger.info(&quot;Introduzca en y de la esquina superior derecha del bloque:&quot;);</span>
+<span class="nc" id="L50">            y = scanner.nextInt();</span>
         }
 
         else{
-<span class="nc" id="L62">            realizarJugada(bloque,x,y);</span>
+<span class="fc" id="L54">            x = (int)(Math.random() * (8 - 2 + 1) + 2);</span>
+<span class="fc" id="L55">            y =  (int)(Math.random() *  (6 - 0 + 1) + 0);</span>
         }
-<span class="nc" id="L64">    }</span>
 
-    private boolean verificarPuedeSerJugado(Bloque bloque){
-<span class="nc" id="L67">        return false;</span>
+
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(!verificarPuedeSerJugado(bloque,x,y)){</span>
+<span class="fc" id="L60">            canPlay=false;</span>
+        }
+
+        else{
+<span class="fc" id="L64">            realizarJugada(bloque,x,y);</span>
+        }
+<span class="fc" id="L66">    }</span>
+
+    private void displayBloque(boolean[][] values, boolean testing) {
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if(!testing){</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">            for (int i = 0; i &lt; 3; ++i) {</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">                for (int j = 0; j &lt; 3; ++j) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                    if(values[i][j] == false)</span>
+<span class="nc" id="L73">                        logger.info(&quot;X&quot;);</span>
+                    else
+<span class="nc" id="L75">                        logger.info(&quot; &quot;);</span>
+                }
+<span class="nc" id="L77">                logger.info(&quot;\n&quot;);</span>
+            }
+        }
+<span class="fc" id="L80">    }</span>
+
+    private boolean verificarPuedeSerJugado(Bloque bloque,int x, int y){
+<span class="fc" id="L83">        boolean answer=true;</span>
+<span class="fc" id="L84">        int temp1=x-2;</span>
+
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        for (int i = 0; i &lt; 3; ++i,++y){</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; ++j,++temp1) {</span>
+<span class="fc bfc" id="L88" title="All 4 branches covered.">                if(bloque.getValues()[i][j]== true &amp;&amp; matrix[y][temp1] == true)</span>
+<span class="fc" id="L89">                    return false;</span>
+            }
+<span class="fc" id="L91">            temp1=x-2;</span>
+        }
+<span class="fc" id="L93">        return answer;</span>
     }
 
-<span class="nc" id="L70">    private void realizarJugada(Bloque bloque, int x,int y){}</span>
-
-    void playGame(){
-<span class="nc bnc" id="L73" title="All 2 branches missed.">        while(canPlay){</span>
-<span class="nc" id="L74">            playTurn();</span>
+    private void realizarJugada(Bloque bloque, int x,int y){
+<span class="fc" id="L97">        int temp1=x-2;</span>
+<span class="fc" id="L98">        int temp2=y;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (int i=0; i &lt;3; ++temp2, ++i) {</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            for (int j = 0; j&lt; 3; ++j, ++temp1) {</span>
+<span class="fc" id="L101">                matrix[temp2][temp1]= bloque.getValues()[i][j];</span>
+            }
+<span class="fc" id="L103">            temp1=x-2;</span>
         }
-<span class="nc" id="L76">        logger.info(&quot;GAME OVER&quot;);</span>
-<span class="nc" id="L77">    }</span>
+
+<span class="fc" id="L106">        boolean []filas = new boolean[3];</span>
+<span class="fc" id="L107">        boolean []columnas = new boolean[3];</span>
+<span class="fc" id="L108">        boolean bloque_valor=true;</span>
+
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
+<span class="fc" id="L111">            filas[i]=true;</span>
+<span class="fc" id="L112">            columnas[i]=true;</span>
+        }
+
+
+        //verificarFilasyColumnas(x, y, filas, columnas);
+<span class="fc" id="L117">        bloque_valor = verificarBloque(x, y, bloque_valor);</span>
+
+
+<span class="fc" id="L120">        adicionarPuntaje(filas, columnas, bloque_valor);</span>
+<span class="fc" id="L121">    }</span>
+
+    private void verificarFilasyColumnas(int temp1, int temp2, boolean[] filas, boolean[] columnas) {
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        for(int j = temp1 -3, j2 = temp2, a = 0; j&lt; temp1; ++j,++a,++j2){</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">            for(int i=0; i&lt;9; ++j){</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">                if(matrix[i][j]==false)</span>
+<span class="nc" id="L127">                    filas[a]= false;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">                if(matrix[j2][i]==false)</span>
+<span class="nc" id="L129">                    columnas[a]=false;</span>
+            }
+        }
+<span class="nc" id="L132">    }</span>
+
+    private boolean verificarBloque(int x, int y, boolean bloque_valor) {
+<span class="fc" id="L135">        int temp1=x-2;</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        for(int i=0; i&lt;3; ++i){</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">            for(int j =0; j&lt; 3; ++j){</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">                if(matrix[i][j]==false)</span>
+<span class="fc" id="L139">                    bloque_valor =false;</span>
+            }
+        }
+<span class="fc" id="L142">        return bloque_valor;</span>
+    }
+
+    private void adicionarPuntaje(boolean[] filas, boolean[] columnas, boolean bloque_valor) {
+<span class="fc bfc" id="L146" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            if(filas[i]==true){</span>
+<span class="fc" id="L148">                puntaje += 120;</span>
+            }
+
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">            if(columnas[i]==true){</span>
+<span class="fc" id="L152">                puntaje+=120;</span>
+            }
+        }
+
+<span class="pc bpc" id="L156" title="1 of 2 branches missed.">        if (bloque_valor ==true){</span>
+<span class="nc" id="L157">            puntaje+=150;</span>
+        }
+<span class="fc" id="L159">    }</span>
+
+    void playGame(boolean testing){
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        while(this.canPlay){</span>
+<span class="fc" id="L163">            display(testing);</span>
+<span class="fc" id="L164">            playTurn(testing);</span>
+        }
+<span class="fc" id="L166">        logger.info(&quot;GAME OVER&quot;);</span>
+<span class="fc" id="L167">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

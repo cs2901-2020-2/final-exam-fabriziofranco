@@ -3,5 +3,5 @@ projectKey=cs2901-2020-2_final-exam-fabriziofranco
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.15878
 dashboardUrl=https://sonarcloud.io/dashboard?id=cs2901-2020-2_final-exam-fabriziofranco
-ceTaskId=AXaQfW0QhpUaZrsDa0yj
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXaQfW0QhpUaZrsDa0yj
+ceTaskId=AXaQ8mTB6gxncjlAOqh6
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXaQ8mTB6gxncjlAOqh6

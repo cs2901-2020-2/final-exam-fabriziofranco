@@ -103,17 +103,20 @@ hashCode()java.lang.Object#hashCode()I^
 copySign(DD)java.lang.Math#copySign(DD)D,
 floorMod(II)java.lang.Math#floorMod(II)I"
 max(II)java.lang.Math#max(II)I,
-toRadians(D)java.lang.Math#toRadians(D)DÊ
+toRadians(D)java.lang.Math#toRadians(D)DÖ
 
-Blockudokujava.lang.Object$
+Blockudokujava.lang.Object6
+displayBloque([[ZZ)Blockudoku#displayBloque([[ZZ)V8
+verificarBloque(IIZ) Blockudoku#verificarBloque(IIZ)ZV
+#verificarPuedeSerJugado(LBloque;II)/Blockudoku#verificarPuedeSerJugado(LBloque;II)Z&
+playGame(Z)Blockudoku#playGame(Z)V 
+<init>()Blockudoku#<init>()V&
+playTurn(Z)Blockudoku#playTurn(Z)VN
+verificarFilasyColumnas(II[Z[Z)+Blockudoku#verificarFilasyColumnas(II[Z[Z)V$
 
-playGame()Blockudoku#playGame()V"
-	display()Blockudoku#display()V$
-
-playTurn()Blockudoku#playTurn()V 
-<init>()Blockudoku#<init>()VR
-!verificarPuedeSerJugado(LBloque;)-Blockudoku#verificarPuedeSerJugado(LBloque;)ZD
-realizarJugada(LBloque;II)&Blockudoku#realizarJugada(LBloque;II)Vó]
+display(Z)Blockudoku#display(Z)VD
+realizarJugada(LBloque;II)&Blockudoku#realizarJugada(LBloque;II)V>
+adicionarPuntaje([Z[ZZ)#Blockudoku#adicionarPuntaje([Z[ZZ)Vó]
 java.util.logging.Loggerjava.lang.ObjectF
 isLevelInitialized().java.util.logging.Logger#isLevelInitialized()Zd
 #fine(Ljava/util/function/Supplier;)=java.util.logging.Logger#fine(Ljava/util/function/Supplier;)V”
