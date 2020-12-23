@@ -131,6 +131,17 @@ public class Blockudoku {
         }
     }
 
+    private void limpiarFila(int y,int i){
+        for(int i=0;i<9;++i)
+            matrix[y+i][i]=false;
+    }
+
+    private void limpiarColumna(int x,int i){
+        x-=2;
+        for(int i=0;i<9;++i)
+            matrix[x+i][i]=false;
+    }
+
 
     private void verificarFilasyColumnas(int temp1, int temp2, boolean[] filas, boolean[] columnas) {
         for(int j = temp1 -3, j2 = temp2, a = 0; j< temp1; ++j,++a,++j2){
