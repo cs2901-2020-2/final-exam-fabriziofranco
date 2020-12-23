@@ -9,60 +9,50 @@
         }
 
 <span class="fc" id="L11">        int random = (int)(Math.random() * (9) + 1);</span>
-<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (random==1){</span>
-<span class="fc" id="L13">                values[0][0] = true;</span>
-<span class="fc" id="L14">                values[1][0] = true;</span>
-<span class="fc" id="L15">                values[2][0] = true;</span>
-<span class="fc" id="L16">                values[2][1] = true;</span>
-<span class="fc" id="L17">                values[2][2] = true;</span>
+<span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (random==1){</span>
+<span class="nc" id="L13">            set1(0, 1, 0, 2, 0, 2, 1, 2);</span>
         }
-<span class="fc bfc" id="L19" title="All 2 branches covered.">        else if (random==2){</span>
-<span class="fc" id="L20">                values[0][0] = true;</span>
-<span class="fc" id="L21">                values[0][1] = true;</span>
-<span class="fc" id="L22">                values[0][2] = true;</span>
-<span class="fc" id="L23">                values[1][2] = true;</span>
-<span class="fc" id="L24">                values[2][2] = true;</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        else if (random==2){</span>
+<span class="fc" id="L16">            set1(0, 0, 1, 0, 2, 1, 2, 2);</span>
         }
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        else if (random==3){</span>
-<span class="fc" id="L27">                values[0][0] = true;</span>
-<span class="fc" id="L28">                values[0][1] = true;</span>
-<span class="fc" id="L29">                values[0][2] = true;</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        else if (random==3){</span>
+<span class="fc" id="L19">            set3(0, 0, 0, 1, 0, 2);</span>
         }
-<span class="fc bfc" id="L31" title="All 2 branches covered.">        else if (random==4){</span>
-<span class="fc" id="L32">            values[0][0] = true;</span>
-<span class="fc" id="L33">            values[1][0] = true;</span>
-<span class="fc" id="L34">            values[2][0] = true;</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        else if (random==4){</span>
+<span class="fc" id="L22">            set3(0, 0, 1, 0, 2, 0);</span>
         }
-<span class="fc bfc" id="L36" title="All 2 branches covered.">        else if (random==5){</span>
-<span class="fc" id="L37">            values[0][1] = true;</span>
-<span class="fc" id="L38">            values[1][1] = true;</span>
-<span class="fc" id="L39">            values[2][1] = true;</span>
-<span class="fc" id="L40">            values[2][0] = true;</span>
-<span class="fc" id="L41">            values[2][2] = true;</span>
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        else if (random==5){</span>
+<span class="nc" id="L25">            set1(1, 1, 1, 2, 1, 2, 0, 2);</span>
         }
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        else if (random==6){</span>
-<span class="fc" id="L44">            values[0][1] = true;</span>
-<span class="fc" id="L45">            values[1][1] = true;</span>
-<span class="fc" id="L46">            values[2][1] = true;</span>
-<span class="fc" id="L47">            values[0][0] = true;</span>
-<span class="fc" id="L48">            values[0][2] = true;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        else if (random==6){</span>
+<span class="fc" id="L28">            set1(1, 1, 1, 2, 1, 0, 0, 0);</span>
         }
-<span class="fc bfc" id="L50" title="All 2 branches covered.">        else if (random==7){</span>
-<span class="fc" id="L51">            values[0][0] = true;</span>
-<span class="fc" id="L52">            values[1][0] = true;</span>
-<span class="fc" id="L53">            values[2][0] = true;</span>
-<span class="fc" id="L54">            values[2][1] = true;</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        else if (random==7){</span>
+<span class="nc" id="L31">            set8(0, 0, 1, 0, 2, 0, 2, 1);</span>
         }
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        else if (random==8){</span>
-<span class="fc" id="L57">            values[0][0] = true;</span>
-<span class="fc" id="L58">            values[1][0] = true;</span>
-<span class="fc" id="L59">            values[2][0] = true;</span>
-<span class="fc" id="L60">            values[0][1] = true;</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if (random==8){</span>
+<span class="fc" id="L34">            set8(0, 0, 1, 0, 2, 0, 0, 1);</span>
         }
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L36">    }</span>
+
+    private void set3(int i2, int i3, int i4, int i5, int i6, int i7) {
+<span class="fc" id="L39">        values[i2][i3] = true;</span>
+<span class="fc" id="L40">        values[i4][i5] = true;</span>
+<span class="fc" id="L41">        values[i6][i7] = true;</span>
+<span class="fc" id="L42">    }</span>
+
+    private void set8(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+<span class="fc" id="L45">        set3(i2, i3, i4, i5, i6, i7);</span>
+<span class="fc" id="L46">        values[i8][i9] = true;</span>
+<span class="fc" id="L47">    }</span>
+
+    private void set1(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+<span class="fc" id="L50">        set8(0, i2, i3, i4, i5, i6, i7, i8);</span>
+<span class="fc" id="L51">        values[i9][2] = true;</span>
+<span class="fc" id="L52">    }</span>
 
     public boolean[][] getValues() {
-<span class="fc" id="L65">        return values;</span>
+<span class="fc" id="L55">        return values;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

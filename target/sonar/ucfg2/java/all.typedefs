@@ -16,10 +16,13 @@ getClass(),java.lang.Object#getClass()Ljava/lang/Class;5
 notifyAll()java.lang.Object#notifyAll()V"
 wait()java.lang.Object#wait()V*
 
-hashCode()java.lang.Object#hashCode()I^
+hashCode()java.lang.Object#hashCode()IØ
 Bloquejava.lang.Object$
 getValues()Bloque#getValues()[[Z
-<init>()Bloque#<init>()VØ
+<init>()Bloque#<init>()V(
+set1(IIIIIIII)Bloque#set1(IIIIIIII)V(
+set8(IIIIIIII)Bloque#set8(IIIIIIII)V$
+set3(IIIIII)Bloque#set3(IIIIII)VØ
 java.lang.Mathjava.lang.Object$
 round(F)java.lang.Math#round(F)I 
 sin(D)java.lang.Math#sin(D)D.
@@ -103,16 +106,18 @@ hashCode()java.lang.Object#hashCode()I^
 copySign(DD)java.lang.Math#copySign(DD)D,
 floorMod(II)java.lang.Math#floorMod(II)I"
 max(II)java.lang.Math#max(II)I,
-toRadians(D)java.lang.Math#toRadians(D)DÖ
+toRadians(D)java.lang.Math#toRadians(D)D®
 
 Blockudokujava.lang.Object6
 displayBloque([[ZZ)Blockudoku#displayBloque([[ZZ)V8
 verificarBloque(IIZ) Blockudoku#verificarBloque(IIZ)ZV
 #verificarPuedeSerJugado(LBloque;II)/Blockudoku#verificarPuedeSerJugado(LBloque;II)Z&
 playGame(Z)Blockudoku#playGame(Z)V 
-<init>()Blockudoku#<init>()V&
-playTurn(Z)Blockudoku#playTurn(Z)VN
-verificarFilasyColumnas(II[Z[Z)+Blockudoku#verificarFilasyColumnas(II[Z[Z)V$
+<init>()Blockudoku#<init>()V@
+limpiarAciertos(II[Z[ZZ)$Blockudoku#limpiarAciertos(II[Z[ZZ)V&
+playTurn(Z)Blockudoku#playTurn(Z)V.
+limpiarFila(II)Blockudoku#limpiarFila(II)V4
+limpiarColumna(II)Blockudoku#limpiarColumna(II)V$
 
 display(Z)Blockudoku#display(Z)VD
 realizarJugada(LBloque;II)&Blockudoku#realizarJugada(LBloque;II)V>

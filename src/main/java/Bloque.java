@@ -10,55 +10,45 @@ public class Bloque {
 
         int random = (int)(Math.random() * (9) + 1);
         if (random==1){
-                values[0][0] = true;
-                values[1][0] = true;
-                values[2][0] = true;
-                values[2][1] = true;
-                values[2][2] = true;
+            set1(0, 1, 0, 2, 0, 2, 1, 2);
         }
         else if (random==2){
-                values[0][0] = true;
-                values[0][1] = true;
-                values[0][2] = true;
-                values[1][2] = true;
-                values[2][2] = true;
+            set1(0, 0, 1, 0, 2, 1, 2, 2);
         }
         else if (random==3){
-                values[0][0] = true;
-                values[0][1] = true;
-                values[0][2] = true;
+            set3(0, 0, 0, 1, 0, 2);
         }
         else if (random==4){
-            values[0][0] = true;
-            values[1][0] = true;
-            values[2][0] = true;
+            set3(0, 0, 1, 0, 2, 0);
         }
         else if (random==5){
-            values[0][1] = true;
-            values[1][1] = true;
-            values[2][1] = true;
-            values[2][0] = true;
-            values[2][2] = true;
+            set1(1, 1, 1, 2, 1, 2, 0, 2);
         }
         else if (random==6){
-            values[0][1] = true;
-            values[1][1] = true;
-            values[2][1] = true;
-            values[0][0] = true;
-            values[0][2] = true;
+            set1(1, 1, 1, 2, 1, 0, 0, 0);
         }
         else if (random==7){
-            values[0][0] = true;
-            values[1][0] = true;
-            values[2][0] = true;
-            values[2][1] = true;
+            set8(0, 0, 1, 0, 2, 0, 2, 1);
         }
         else if (random==8){
-            values[0][0] = true;
-            values[1][0] = true;
-            values[2][0] = true;
-            values[0][1] = true;
+            set8(0, 0, 1, 0, 2, 0, 0, 1);
         }
+    }
+
+    private void set3(int i2, int i3, int i4, int i5, int i6, int i7) {
+        values[i2][i3] = true;
+        values[i4][i5] = true;
+        values[i6][i7] = true;
+    }
+
+    private void set8(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        set3(i2, i3, i4, i5, i6, i7);
+        values[i8][i9] = true;
+    }
+
+    private void set1(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        set8(0, i2, i3, i4, i5, i6, i7, i8);
+        values[i9][2] = true;
     }
 
     public boolean[][] getValues() {

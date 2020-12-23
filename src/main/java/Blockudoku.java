@@ -35,7 +35,6 @@ public class Blockudoku {
 
     private void playTurn(boolean testing){
 
-        logger.info("El bloque aleatorio es:");
 
         Bloque bloque= new Bloque();
         boolean [][] values= bloque.getValues();
@@ -113,55 +112,64 @@ public class Blockudoku {
         }
 
 
-        //verificarFilasyColumnas(x, y, filas, columnas);
-        //bloque_valor = verificarBloque(x, y, bloque_valor);
+        temp1=x-2;
+        for(int it=0;it<3;++it,++temp1,++y){
+            for(int i=0; i<9; ++i){
+                if(matrix[i][temp1]==false)
+                    filas[it]= false;
+                if(matrix[y][i]==false)
+                    columnas[it]=false;
+            }
+        }
+
+
+        bloque_valor = verificarBloque(x, y, bloque_valor);
 
 
         adicionarPuntaje(filas, columnas, bloque_valor);
 
-        limpiarAciertos(x,y,filas,columnas,bloque);
+        limpiarAciertos(x, y, filas, columnas, bloque_valor);
     }
 
-    private void limpiarAciertos( int x, int,y, boolean [] filas, boolean [] columnas, boolean bloque){
+
+    private void limpiarAciertos( int x, int y, boolean [] filas, boolean [] columnas, boolean bloque){
         for(int i=0;i<3;++i){
             if(filas[i]==true)
                 limpiarFila(y,i);
             if(columnas[i]==true)
                 limpiarColumna(x,i);
         }
-    }
 
-    private void limpiarFila(int y,int i){
-        for(int i=0;i<9;++i)
-            matrix[y+i][i]=false;
-    }
-
-    private void limpiarColumna(int x,int i){
-        x-=2;
-        for(int i=0;i<9;++i)
-            matrix[x+i][i]=false;
-    }
-
-
-    private void verificarFilasyColumnas(int temp1, int temp2, boolean[] filas, boolean[] columnas) {
-        for(int j = temp1 -3, j2 = temp2, a = 0; j< temp1; ++j,++a,++j2){
-            for(int i=0; i<9; ++j){
-                if(matrix[i][j]==false)
-                    filas[a]= false;
-                if(matrix[j2][i]==false)
-                    columnas[a]=false;
+        if(bloque){
+            int temp1=x-2;
+            int temp2=y;
+            for (int i=0; i <3; ++temp2, ++i) {
+                for (int j = 0; j< 3; ++j, ++temp1) {
+                    matrix[temp2][temp1]= false;
+                }
+                temp1=x-2;
             }
         }
     }
 
+    private void limpiarFila(int y,int i){
+        for(int j=0;j<9;++j)
+            matrix[y+i][j]=false;
+    }
+
+    private void limpiarColumna(int x,int i){
+        x-=2;
+        for(int j=0;j<9;++j)
+            matrix[x+i][j]=false;
+    }
+
+
     private boolean verificarBloque(int x, int y, boolean bloque_valor) {
-        int temp1=x-2;
-        for(int i=0; i<3; ++i, ++y){
-            for(int j =0; j< 3; ++temp1){
-                if(matrix[y][temp1]==false)
+        for(int i=0; i<3; ++i){
+            for(int j =0; j< 3; ++j){
+                if(matrix[j][i]==false)
                     bloque_valor =false;
             }
-            temp1=x-2;
         }
         return bloque_valor;
     }
