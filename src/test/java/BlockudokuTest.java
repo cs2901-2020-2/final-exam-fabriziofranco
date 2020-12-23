@@ -6,7 +6,7 @@ public class BlockudokuTest {
     @Test
     public void testCase0() {
         Blockudoku game = new Blockudoku();
-        game.playGame();
+        game.playGame(true);
         assertTrue(true);
     }
 }

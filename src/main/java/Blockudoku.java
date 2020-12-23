@@ -31,7 +31,7 @@ public class Blockudoku {
         }
     }
 
-    private void playTurn(){
+    private void playTurn(boolean testing){
 
         logger.info("El bloque aleatorio es:");
 
@@ -48,11 +48,18 @@ public class Blockudoku {
             logger.info("\n");
         }
 
+        if(! testing) {
+            logger.info("Introduzca en x de la esquina superior derecha del bloque:");
+            int y = scanner.nextInt();
+            logger.info("Introduzca en y de la esquina superior derecha del bloque:");
+            int x = scanner.nextInt();
+        }
 
-        logger.info("Introduzca en x de la esquina superior derecha del bloque:");
-        int x = scanner.nextInt();
-        logger.info("Introduzca en y de la esquina superior derecha del bloque:");
-        int y = scanner.nextInt();
+        else{
+            int y = (int)(Math.random() * (8 - 2 + 1) + 2);
+            int x= (int)(Math.random() *  (6 - 0 + 1) + 0);
+        }
+
 
         if(!verificarPuedeSerJugado(bloque)){
             canPlay=false;
@@ -126,9 +133,9 @@ public class Blockudoku {
         }
     }
 
-    void playGame(){
+    void playGame(boolean testing){
         while(this.canPlay){
-            playTurn();
+            playTurn(testing);
         }
         logger.info("GAME OVER");
     }
