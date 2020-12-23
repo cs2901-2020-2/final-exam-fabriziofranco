@@ -114,7 +114,7 @@ public class Blockudoku {
 
 
         //verificarFilasyColumnas(x, y, filas, columnas);
-<span class="fc" id="L117">        bloque_valor = verificarBloque(x, y, bloque_valor);</span>
+        //bloque_valor = verificarBloque(x, y, bloque_valor);
 
 
 <span class="fc" id="L120">        adicionarPuntaje(filas, columnas, bloque_valor);</span>
@@ -132,39 +132,39 @@ public class Blockudoku {
 <span class="nc" id="L132">    }</span>
 
     private boolean verificarBloque(int x, int y, boolean bloque_valor) {
-<span class="fc" id="L135">        int temp1=x-2;</span>
-<span class="fc bfc" id="L136" title="All 2 branches covered.">        for(int i=0; i&lt;3; ++i){</span>
-<span class="fc bfc" id="L137" title="All 2 branches covered.">            for(int j =0; j&lt; 3; ++j){</span>
-<span class="pc bpc" id="L138" title="1 of 2 branches missed.">                if(matrix[i][j]==false)</span>
-<span class="fc" id="L139">                    bloque_valor =false;</span>
+<span class="nc" id="L135">        int temp1=x-2;</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        for(int i=0; i&lt;3; ++i, ++y){</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">            for(int j =0; j&lt; 3; ++temp1){</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">                if(matrix[y][temp1]==false)</span>
+<span class="nc" id="L139">                    bloque_valor =false;</span>
             }
+<span class="nc" id="L141">            temp1=x-2;</span>
         }
-<span class="fc" id="L142">        return bloque_valor;</span>
+<span class="nc" id="L143">        return bloque_valor;</span>
     }
 
     private void adicionarPuntaje(boolean[] filas, boolean[] columnas, boolean bloque_valor) {
-<span class="fc bfc" id="L146" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
-<span class="pc bpc" id="L147" title="1 of 2 branches missed.">            if(filas[i]==true){</span>
-<span class="fc" id="L148">                puntaje += 120;</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">            if(filas[i]==true){</span>
+<span class="fc" id="L149">                puntaje += 120;</span>
             }
 
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">            if(columnas[i]==true){</span>
-<span class="fc" id="L152">                puntaje+=120;</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">            if(columnas[i]==true){</span>
+<span class="fc" id="L153">                puntaje+=120;</span>
             }
         }
 
-<span class="pc bpc" id="L156" title="1 of 2 branches missed.">        if (bloque_valor ==true){</span>
-<span class="nc" id="L157">            puntaje+=150;</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">        if (bloque_valor ==true){</span>
+<span class="fc" id="L158">            puntaje+=150;</span>
         }
-<span class="fc" id="L159">    }</span>
+<span class="fc" id="L160">    }</span>
 
     void playGame(boolean testing){
-<span class="fc bfc" id="L162" title="All 2 branches covered.">        while(this.canPlay){</span>
-<span class="fc" id="L163">            display(testing);</span>
-<span class="fc" id="L164">            playTurn(testing);</span>
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        while(this.canPlay){</span>
+<span class="fc" id="L164">            display(testing);</span>
+<span class="fc" id="L165">            playTurn(testing);</span>
         }
-<span class="fc" id="L166">        logger.info(&quot;GAME OVER&quot;);</span>
-<span class="fc" id="L167">    }</span>
-
+<span class="fc" id="L167">        logger.info(&quot;GAME OVER&quot;);</span>
+<span class="fc" id="L168">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

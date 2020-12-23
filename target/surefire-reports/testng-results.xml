@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-12-23T13:52:36 PET" name="Surefire suite" finished-at="2020-12-23T13:52:36 PET" duration-ms="91">
+  <suite started-at="2020-12-23T14:01:23 PET" name="Surefire suite" finished-at="2020-12-23T14:01:24 PET" duration-ms="98">
     <groups>
     </groups>
-    <test started-at="2020-12-23T13:52:36 PET" name="Surefire test" finished-at="2020-12-23T13:52:36 PET" duration-ms="91">
+    <test started-at="2020-12-23T14:01:23 PET" name="Surefire test" finished-at="2020-12-23T14:01:24 PET" duration-ms="98">
       <class name="BlockudokuTest">
-        <test-method signature="testCase0()[pri:0, instance:BlockudokuTest@4a23350]" started-at="2020-12-23T13:52:36 PET" name="testCase0" finished-at="2020-12-23T13:52:36 PET" duration-ms="47" status="PASS">
+        <test-method signature="testCase0()[pri:0, instance:BlockudokuTest@4a23350]" started-at="2020-12-23T14:01:24 PET" name="testCase0" finished-at="2020-12-23T14:01:24 PET" duration-ms="54" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCase0 -->

@@ -114,11 +114,23 @@ public class Blockudoku {
 
 
         //verificarFilasyColumnas(x, y, filas, columnas);
-        bloque_valor = verificarBloque(x, y, bloque_valor);
+        //bloque_valor = verificarBloque(x, y, bloque_valor);
 
 
         adicionarPuntaje(filas, columnas, bloque_valor);
+
+        limpiarAciertos(x,y,filas,columnas,bloque);
     }
+
+    private void limpiarAciertos( int x, int,y, boolean [] filas, boolean [] columnas, boolean bloque){
+        for(int i=0;i<3;++i){
+            if(filas[i]==true)
+                limpiarFila(y,i);
+            if(columnas[i]==true)
+                limpiarColumna(x,i);
+        }
+    }
+
 
     private void verificarFilasyColumnas(int temp1, int temp2, boolean[] filas, boolean[] columnas) {
         for(int j = temp1 -3, j2 = temp2, a = 0; j< temp1; ++j,++a,++j2){
@@ -133,7 +145,7 @@ public class Blockudoku {
 
     private boolean verificarBloque(int x, int y, boolean bloque_valor) {
         int temp1=x-2;
-        for(int i=0; i<3; ++i){
+        for(int i=0; i<3; ++i, ++y){
             for(int j =0; j< 3; ++temp1){
                 if(matrix[y][temp1]==false)
                     bloque_valor =false;
@@ -166,5 +178,4 @@ public class Blockudoku {
         }
         logger.info("GAME OVER");
     }
-
 }

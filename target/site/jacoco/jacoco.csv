@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-final-fabriziofranco,default,Blockudoku,127,293,27,35,24,66,18,24,1,10
+final-fabriziofranco,default,Blockudoku,155,264,32,30,30,60,21,21,2,9
 final-fabriziofranco,default,Bloque,0,308,0,20,0,50,0,12,0,2
 final-fabriziofranco,default,Piezas,463,0,0,0,39,0,9,0,9,0
 final-fabriziofranco,default,Pieza,86,0,6,0,24,0,11,0,8,0
