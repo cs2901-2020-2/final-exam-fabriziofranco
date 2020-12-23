@@ -40,7 +40,7 @@ public class Blockudoku {
 
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
-                if(values[i][j] = false)
+                if(values[i][j] == false)
                     logger.info("X");
                 else
                     logger.info(" ");
@@ -55,7 +55,7 @@ public class Blockudoku {
         int y = scanner.nextInt();
 
         if(!verificarPuedeSerJugado(bloque)){
-            canPlay=true;
+            canPlay=false;
         }
 
         else{
@@ -68,7 +68,7 @@ public class Blockudoku {
 
         for (int i = 0; i < 3; ++i) {
             for (int j = 0; j < 3; ++j) {
-                if(values[i][j]= true and matrix[i][j] = true)
+                if(bloque.getValues()[i][j]== true && matrix[i][j] == true)
                     return false;
             }
         }
@@ -80,15 +80,50 @@ public class Blockudoku {
         int temp2=y+3;
         for (int i=0; x < temp1; ++x, ++i) {
             for (int j = 0; y < temp2; ++j, ++y) {
-                matrix[x][y]= values[i][j];
+                matrix[x][y]= bloque.getValues()[i][j];
             }
         }
 
         boolean []filas = new boolean[3];
-        for(int i=0;i<9;++i){
+        boolean []columnas = new boolean[3];
+        boolean bloque_valor=true;
 
+        for(int i=0;i<3;++i){
+            filas[i]=true;
+            columnas[i]=true;
         }
 
+
+        for(int j=temp1-3, j2=temp2, a=0; j<temp1; ++j,++a,++j2){
+            for(int i=0; i<9; ++j){
+                if(matrix[j][i]==false)
+                    filas[a]= false;
+                if(matrix[i][j2]==false)
+                    columnas[a]=false;
+            }
+        }
+
+
+        for(int i= temp1-3; i<temp1;++i){
+            for(int j= temp2; i<temp2+3;++j){
+                if(matrix[i][j]==false)
+                    bloque_valor=false;
+            }
+        }
+
+        for(int i=0;i<3;++i){
+            if(filas[i]==true){
+                puntaje += 120;
+            }
+
+            if(columnas[i]==true){
+                puntaje+=120;
+            }
+        }
+
+        if (bloque_valor==true){
+            puntaje+=150;
+        }
     }
 
     void playGame(){
