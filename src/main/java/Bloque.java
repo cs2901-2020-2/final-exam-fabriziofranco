@@ -1,5 +1,16 @@
+import java.util.Random;
+import java.security.*;
+
+
 public class Bloque {
     boolean [][]values = new boolean[3][3];
+    Random r = new SecureRandom();
+
+
+    public int getRandomNumberInRange(int min, int max) {
+        return r.nextInt((max - min) + 1) + min;
+    }
+
 
     public Bloque() {
         for(int i=0;i<3;++i){
@@ -8,7 +19,8 @@ public class Bloque {
             }
         }
 
-        int random = (int)(Math.random() * (9) + 1);
+        int random = getRandomNumberInRange(1,8);
+
         if (random==1){
             set1(0, 1, 0, 2, 0, 2, 1, 2);
         }
@@ -30,7 +42,7 @@ public class Bloque {
         else if (random==7){
             set8(0, 0, 1, 0, 2, 0, 2, 1);
         }
-        else if (random==8){
+        else{
             set8(0, 0, 1, 0, 2, 0, 0, 1);
         }
     }

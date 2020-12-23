@@ -3,7 +3,7 @@ import java.util.logging.Logger;
 
 
 public class Blockudoku {
-    public int puntaje=0;
+    private int puntaje=0;
     boolean canPlay=true;
     boolean [][] matrix= new boolean[9] [9];
     Scanner scanner = new Scanner(System.in);
@@ -19,11 +19,11 @@ public class Blockudoku {
         }
     }
 
-    private void display(boolean testing){
+    void display(boolean testing){
         if(!testing){
             for (int i = 0; i < 9; ++i) {
                 for (int j = 0; j < 9; ++j) {
-                    if(matrix[i][j] == false)
+                    if(!matrix[i][j])
                         logger.info("X");
                     else
                         logger.info(" ");
@@ -33,7 +33,7 @@ public class Blockudoku {
         }
     }
 
-    private void playTurn(boolean testing){
+    void playTurn(boolean testing){
 
 
         Bloque bloque= new Bloque();
@@ -41,17 +41,20 @@ public class Blockudoku {
 
         displayBloque(values,testing);
 
-        int x,y;
+        int x;
+        int y;
         if(!testing) {
             logger.info("Introduzca en x de la esquina superior derecha del bloque:");
             x = scanner.nextInt();
             logger.info("Introduzca en y de la esquina superior derecha del bloque:");
             y = scanner.nextInt();
+            return;
         }
 
         else{
-            x = (int)(Math.random() * (8 - 2 + 1) + 2);
-            y =  (int)(Math.random() *  (6 - 0 + 1) + 0);
+
+            x =  bloque.getRandomNumberInRange(2,8);
+            y =  bloque.getRandomNumberInRange(0,6);
         }
 
 
@@ -64,11 +67,11 @@ public class Blockudoku {
         }
     }
 
-    private void displayBloque(boolean[][] values, boolean testing) {
+    void displayBloque(boolean[][] values, boolean testing) {
         if(!testing){
             for (int i = 0; i < 3; ++i) {
                 for (int j = 0; j < 3; ++j) {
-                    if(values[i][j] == false)
+                    if(!values[i][j])
                         logger.info("X");
                     else
                         logger.info(" ");
@@ -84,7 +87,7 @@ public class Blockudoku {
 
         for (int i = 0; i < 3; ++i,++y){
             for (int j = 0; j < 3; ++j,++temp1) {
-                if(bloque.getValues()[i][j]== true && matrix[y][temp1] == true)
+                if(bloque.getValues()[i][j] && matrix[y][temp1])
                     return false;
             }
             temp1=x-2;
@@ -104,7 +107,7 @@ public class Blockudoku {
 
         boolean []filas = new boolean[3];
         boolean []columnas = new boolean[3];
-        boolean bloque_valor=true;
+        boolean bloqueValor=true;
 
         for(int i=0;i<3;++i){
             filas[i]=true;
@@ -115,28 +118,28 @@ public class Blockudoku {
         temp1=x-2;
         for(int it=0;it<3;++it,++temp1,++y){
             for(int i=0; i<9; ++i){
-                if(matrix[i][temp1]==false)
+                if(!matrix[i][temp1])
                     filas[it]= false;
-                if(matrix[y][i]==false)
+                if(!matrix[y][i])
                     columnas[it]=false;
             }
         }
 
 
-        bloque_valor = verificarBloque(x, y, bloque_valor);
+        bloqueValor = verificarBloque(x, y, bloqueValor);
 
 
-        adicionarPuntaje(filas, columnas, bloque_valor);
+        adicionarPuntaje(filas, columnas, bloqueValor);
 
-        limpiarAciertos(x, y, filas, columnas, bloque_valor);
+        limpiarAciertos(x, y, filas, columnas, bloqueValor);
     }
 
 
     private void limpiarAciertos( int x, int y, boolean [] filas, boolean [] columnas, boolean bloque){
         for(int i=0;i<3;++i){
-            if(filas[i]==true)
+            if(filas[i])
                 limpiarFila(y,i);
-            if(columnas[i]==true)
+            if(columnas[i])
                 limpiarColumna(x,i);
         }
 
@@ -152,41 +155,41 @@ public class Blockudoku {
         }
     }
 
-    private void limpiarFila(int y,int i){
+    void limpiarFila(int y,int i){
         for(int j=0;j<9;++j)
             matrix[y+i][j]=false;
     }
 
-    private void limpiarColumna(int x,int i){
+    void limpiarColumna(int x,int i){
         x-=2;
         for(int j=0;j<9;++j)
             matrix[x+i][j]=false;
     }
 
 
-    private boolean verificarBloque(int x, int y, boolean bloque_valor) {
+    private boolean verificarBloque(int x, int y, boolean bloqueValor) {
         for(int i=0; i<3; ++i){
             for(int j =0; j< 3; ++j){
-                if(matrix[j][i]==false)
-                    bloque_valor =false;
+                if(!matrix[j][i])
+                    bloqueValor =false;
             }
         }
-        return bloque_valor;
+        return bloqueValor;
     }
 
-    private void adicionarPuntaje(boolean[] filas, boolean[] columnas, boolean bloque_valor) {
+    private void adicionarPuntaje(boolean[] filas, boolean[] columnas, boolean bloqueValor) {
         for(int i=0;i<3;++i){
-            if(filas[i]==true){
-                puntaje += 120;
+            if(filas[i]){
+                this.puntaje += 120;
             }
 
-            if(columnas[i]==true){
-                puntaje+=120;
+            if(columnas[i]){
+                this.puntaje+=120;
             }
         }
 
-        if (bloque_valor ==true){
-            puntaje+=150;
+        if (bloqueValor ){
+            this.puntaje+=150;
         }
     }
 

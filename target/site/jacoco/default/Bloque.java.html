@@ -1,58 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bloque.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">final-fabriziofranco</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Bloque.java</span></div><h1>Bloque.java</h1><pre class="source lang-java linenums">public class Bloque {
-<span class="fc" id="L2">    boolean [][]values = new boolean[3][3];</span>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Bloque.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">final-fabriziofranco</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Bloque.java</span></div><h1>Bloque.java</h1><pre class="source lang-java linenums">import java.util.Random;
+import java.security.*;
 
-<span class="fc" id="L4">    public Bloque() {</span>
-<span class="fc bfc" id="L5" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
-<span class="fc bfc" id="L6" title="All 2 branches covered.">            for(int j=0;j&lt;3;++j){</span>
-<span class="fc" id="L7">                values[i][j]=false;</span>
+
+public class Bloque {
+<span class="fc" id="L6">    boolean [][]values = new boolean[3][3];</span>
+<span class="fc" id="L7">    Random r = new SecureRandom();</span>
+
+
+    public int getRandomNumberInRange(int min, int max) {
+<span class="fc" id="L11">        return r.nextInt((max - min) + 1) + min;</span>
+    }
+
+
+<span class="fc" id="L15">    public Bloque() {</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for(int i=0;i&lt;3;++i){</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            for(int j=0;j&lt;3;++j){</span>
+<span class="fc" id="L18">                values[i][j]=false;</span>
             }
         }
 
-<span class="fc" id="L11">        int random = (int)(Math.random() * (9) + 1);</span>
-<span class="pc bpc" id="L12" title="1 of 2 branches missed.">        if (random==1){</span>
-<span class="nc" id="L13">            set1(0, 1, 0, 2, 0, 2, 1, 2);</span>
+<span class="fc" id="L22">        int random = getRandomNumberInRange(1,8);</span>
+
+<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        if (random==1){</span>
+<span class="nc" id="L25">            set1(0, 1, 0, 2, 0, 2, 1, 2);</span>
         }
-<span class="fc bfc" id="L15" title="All 2 branches covered.">        else if (random==2){</span>
-<span class="fc" id="L16">            set1(0, 0, 1, 0, 2, 1, 2, 2);</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        else if (random==2){</span>
+<span class="nc" id="L28">            set1(0, 0, 1, 0, 2, 1, 2, 2);</span>
         }
-<span class="fc bfc" id="L18" title="All 2 branches covered.">        else if (random==3){</span>
-<span class="fc" id="L19">            set3(0, 0, 0, 1, 0, 2);</span>
+<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        else if (random==3){</span>
+<span class="nc" id="L31">            set3(0, 0, 0, 1, 0, 2);</span>
         }
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        else if (random==4){</span>
-<span class="fc" id="L22">            set3(0, 0, 1, 0, 2, 0);</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if (random==4){</span>
+<span class="nc" id="L34">            set3(0, 0, 1, 0, 2, 0);</span>
         }
-<span class="pc bpc" id="L24" title="1 of 2 branches missed.">        else if (random==5){</span>
-<span class="nc" id="L25">            set1(1, 1, 1, 2, 1, 2, 0, 2);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        else if (random==5){</span>
+<span class="fc" id="L37">            set1(1, 1, 1, 2, 1, 2, 0, 2);</span>
         }
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        else if (random==6){</span>
-<span class="fc" id="L28">            set1(1, 1, 1, 2, 1, 0, 0, 0);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        else if (random==6){</span>
+<span class="fc" id="L40">            set1(1, 1, 1, 2, 1, 0, 0, 0);</span>
         }
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        else if (random==7){</span>
-<span class="nc" id="L31">            set8(0, 0, 1, 0, 2, 0, 2, 1);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        else if (random==7){</span>
+<span class="fc" id="L43">            set8(0, 0, 1, 0, 2, 0, 2, 1);</span>
         }
-<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        else if (random==8){</span>
-<span class="fc" id="L34">            set8(0, 0, 1, 0, 2, 0, 0, 1);</span>
+        else{
+<span class="fc" id="L46">            set8(0, 0, 1, 0, 2, 0, 0, 1);</span>
         }
-<span class="fc" id="L36">    }</span>
+<span class="fc" id="L48">    }</span>
 
     private void set3(int i2, int i3, int i4, int i5, int i6, int i7) {
-<span class="fc" id="L39">        values[i2][i3] = true;</span>
-<span class="fc" id="L40">        values[i4][i5] = true;</span>
-<span class="fc" id="L41">        values[i6][i7] = true;</span>
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L51">        values[i2][i3] = true;</span>
+<span class="fc" id="L52">        values[i4][i5] = true;</span>
+<span class="fc" id="L53">        values[i6][i7] = true;</span>
+<span class="fc" id="L54">    }</span>
 
     private void set8(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-<span class="fc" id="L45">        set3(i2, i3, i4, i5, i6, i7);</span>
-<span class="fc" id="L46">        values[i8][i9] = true;</span>
-<span class="fc" id="L47">    }</span>
+<span class="fc" id="L57">        set3(i2, i3, i4, i5, i6, i7);</span>
+<span class="fc" id="L58">        values[i8][i9] = true;</span>
+<span class="fc" id="L59">    }</span>
 
     private void set1(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
-<span class="fc" id="L50">        set8(0, i2, i3, i4, i5, i6, i7, i8);</span>
-<span class="fc" id="L51">        values[i9][2] = true;</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L62">        set8(0, i2, i3, i4, i5, i6, i7, i8);</span>
+<span class="fc" id="L63">        values[i9][2] = true;</span>
+<span class="fc" id="L64">    }</span>
 
     public boolean[][] getValues() {
-<span class="fc" id="L55">        return values;</span>
+<span class="fc" id="L67">        return values;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
